@@ -1,0 +1,25 @@
+<div class="p-6">
+  <h1 class="text-2xl font-bold mb-4">Task List</h1>
+
+  <!-- Container with horizontal scroll for small screens -->
+  <div class="overflow-x-auto border rounded-lg shadow">
+    <!-- Header row -->
+    <div class="grid grid-cols-8 text-sm font-medium text-gray-600 bg-gray-100">
+      <div class="px-4 py-2">Title</div>
+      <div class="px-4 py-2">Description</div>
+      <div class="px-4 py-2">Status</div>
+      <div class="px-4 py-2">Priority</div>
+      <div class="px-4 py-2">Category</div>
+      <div class="px-4 py-2">Due Date</div>
+      <div class="px-4 py-2">Created</div>
+      <div class="px-4 py-2">Last Modified</div>
+    </div>
+
+    <!-- Task rows -->
+    <div class="divide-y divide-gray-200">
+      @for (task of tasks; track task.id) {
+        <app-task-detail [task]="task"></app-task-detail>
+      }
+    </div>
+  </div>
+</div>
