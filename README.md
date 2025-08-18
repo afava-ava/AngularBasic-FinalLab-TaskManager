@@ -1,59 +1,79 @@
 # AngularBasicFinalLabTaskManager
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
+📝 Práctica Final de Angular Básico
+📌 Título: Gestor de Tareas
 
-## Development server
+🎯 Objetivo
+Desarrollar una aplicación SPA (Single Page Application) usando Angular que permita gestionar una lista de tareas, categorizarlas y visualizarlas con filtros personalizados. Esta práctica evaluará la comprensión de los siguientes conceptos clave:
 
-To start a local development server, run:
+Directivas estructurales y de atributos
 
-```bash
-ng serve
-```
+Pipes personalizados y built-in
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Servicios para gestión de datos
 
-## Code scaffolding
+Routing con parámetros y rutas hijas
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Data binding (one-way, two-way y event binding)
 
-```bash
-ng generate component component-name
-```
+📁 Estructura mínima de la app
+Rutas requeridas:
+    Ruta	    Componente	        Descripción
+-   /	        HomeComponent	    Página de bienvenida
+-   /tasks	    TaskListComponent	Muestra lista de tareas
+-   /tasks/:id	TaskDetailComponent	Muestra detalles de una tarea
+-   /add-task	AddTaskComponent	Formulario para crear nueva tarea
+📌 Requerimientos funcionales
+✅ Tareas
+Crear, listar, editar y eliminar tareas.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Cada tarea debe tener:
 
-```bash
-ng generate --help
-```
+- Título
+- Descripción
+- Fecha de vencimiento
+- Prioridad (Alta, Media, Baja)
+- Estado (Pendiente, En Proceso, Completada)
+- Categoría (Personal, Trabajo, Otro)
 
-## Building
+✅ Data Binding
+Mostrar tareas en una lista con interpolación y property binding.
 
-To build the project run:
+Usar event binding para botones (editar, eliminar).
 
-```bash
-ng build
-```
+Two-way binding para formularios con [(ngModel)].
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+✅ Directivas
+Usar *@If y *@For para mostrar elementos condicionales y listas.
 
-## Running unit tests
+Crear una directiva que resalte un usuario si su nombre comienza con una vocal (A, E, I, O, U).
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+✅ Pipes
+Usar pipes integrados como date, uppercase, etc.
 
-```bash
-ng test
-```
+Crear un pipe personalizado para mostrar el estado de la tarea en texto coloreado o como emoji.
 
-## Running end-to-end tests
+✅ Servicios
+Crear un servicio (TaskService) que consuma una API pública (https://jsonplaceholder.typicode.com/todos) usando HttpClient. Este servicio debe permitir:
 
-For end-to-end (e2e) testing, run:
+Obtener todas las tareas
 
-```bash
-ng e2e
-```
+Obtener una tarea por ID
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+(Opcional) Agregar, editar o eliminar tareas simuladas (aunque la API no guarda los cambios, puedes hacer el POST/PUT/DELETE para practicar).
 
-## Additional Resources
+Utilizar inyección de dependencias para consumir el servicio desde los componentes.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+✅ Routing
+Configurar rutas básicas y navegación.
+
+Mostrar detalles de una tarea con ActivatedRoute (usando :id).
+
+Ruta protegida opcionalmente con un guard (bonus).
+
+**✨ Requerimientos extra **
+Confirmación antes de eliminar una tarea (con window.confirm o modal).
+
+Filtro de tareas por estado o categoría usando un select.
+
+Uso de rutas hijas, por ejemplo /tasks/:id/edit.
