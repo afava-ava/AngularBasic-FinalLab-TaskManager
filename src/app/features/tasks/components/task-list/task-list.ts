@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { MOCK_TASKS } from '../../models/mock-task';
+import { Component, Input } from '@angular/core';
 import { Task } from '../../models/task';
 import { TaskDetailComponent } from '../task-detail/task-detail';
 
@@ -9,5 +8,5 @@ import { TaskDetailComponent } from '../task-detail/task-detail';
   templateUrl: './task-list.html'
 })
 export class TaskListComponent {
-  tasks : Task[] = MOCK_TASKS
+  @Input() tasks: Task[] = [];
 }
