@@ -1,0 +1,62 @@
+<div class="p-6 max-w-xl mx-auto bg-white shadow rounded">
+  <a 
+    routerLink="/" 
+    class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-xl shadow hover:bg-gray-300 transition"
+  >
+    <!-- Left Arrow Icon -->
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      fill="none" 
+      viewBox="0 0 24 24" 
+      stroke="currentColor" 
+      class="w-5 h-5 mr-2"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+    Back
+  </a>
+  <h1 class="text-2xl font-bold mb-4">task Details</h1>
+
+  @if(taskSignal()){
+    <div class="mb-2">
+      <label class="font-semibold">Title:</label>
+      <input type="text" [value]="taskSignal()!.title" class="border rounded px-2 py-1 w-full" readonly>
+    </div>
+
+    <div class="mb-2">
+      <label class="font-semibold">Description:</label>
+      <textarea class="border rounded px-2 py-1 w-full" rows="3" readonly>{{ taskSignal()!.description }}</textarea>
+    </div>
+
+    <div class="mb-2">
+      <label class="font-semibold">Status:</label>
+      <input type="text" [value]="taskSignal()!.status" class="border rounded px-2 py-1 w-full" readonly>
+    </div>
+
+    <div class="mb-2">
+      <label class="font-semibold">Priority:</label>
+      <input type="text" [value]="taskSignal()!.priority" class="border rounded px-2 py-1 w-full" readonly>
+    </div>
+
+    <div class="mb-2">
+      <label class="font-semibold">Category:</label>
+      <input type="text" [value]="taskSignal()!.category" class="border rounded px-2 py-1 w-full" readonly>
+    </div>
+
+    <div class="mb-2">
+      <label class="font-semibold">Due Date:</label>
+      <input type="text" [value]="taskSignal()!.dueDate | date:'mediumDate'" class="border rounded px-2 py-1 w-full" readonly>
+    </div>
+
+    <div class="mb-2">
+      <label class="font-semibold">Created:</label>
+      <input type="text" [value]="taskSignal()!.creationDate | date:'short'" class="border rounded px-2 py-1 w-full" readonly>
+    </div>
+
+    <div class="mb-4">
+      <label class="font-semibold">Last Modified:</label>
+      <input type="text" [value]="taskSignal()!.lastModified | date:'short'" class="border rounded px-2 py-1 w-full" readonly>
+    </div>
+  } @else {
+    <p>This task does not exist...</p>
+  }

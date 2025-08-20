@@ -68,4 +68,9 @@ export class TaskApi {
   getTasks(): Observable<Task[]> {
     return of(this.tasks);
   }
+
+  getTaskById(id: number): Observable<Task | undefined> {
+    const task = this.tasks.find(t => t.id === id);
+    return of(task);
+  }
 }
